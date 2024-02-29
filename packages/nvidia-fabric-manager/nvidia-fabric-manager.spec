@@ -27,7 +27,7 @@
 %global branch 550
 %global _missing_build_ids_terminate_build 0
 
-Name:           nvidia-fabric-manager
+Name: %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
 Release:        1
 Summary:        Fabric Manager for NVSwitch based systems
