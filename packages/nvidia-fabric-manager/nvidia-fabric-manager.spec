@@ -112,7 +112,6 @@ cp include/nv_fm_types.h %{buildroot}%{_cross_includedir}/
 %{_cross_bindir}/*
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
-/usr/share/doc/nvidia-fabricmanager/*
 /x86_64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/nvidia-fabric-manager/attribution.txt
 
 %files -n nvidia-fabric-manager-devel
