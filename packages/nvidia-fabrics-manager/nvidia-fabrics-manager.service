@@ -2,12 +2,13 @@
 Description=NVIDIA fabric manager service
 After=network-online.target
 Requires=network-online.target
+After=multi-user.target
 
 [Service]
 User=root
 PrivateTmp=false
 Type=forking
-TimeoutStartSec=120
+TimeoutStartSec=240
 
 ExecStart=/usr/bin/nv-fabricmanager -c /usr/share/nvidia/nvswitch/fabricmanager.cfg
 
