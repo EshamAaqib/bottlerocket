@@ -29,7 +29,7 @@
 
 Name: %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
-Release: 1%{?dist}
+Release:        1
 Summary:        Fabric Manager for NVSwitch based systems
 
 License:        NVIDIA Proprietary
