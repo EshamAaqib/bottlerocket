@@ -3,7 +3,6 @@
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
 %global version 470.57.02
-%global build-id 1 
 %global branch 470
 
 Name:           %{_cross_os}nvidia-fabric-manager
