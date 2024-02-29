@@ -82,7 +82,6 @@ package is across all driver branches.
 export DONT_STRIP=1
 
 rm -rf %{buildroot}
-%undefine _missing_build_ids_terminate_build
 mkdir -p %{buildroot}%{_bindir}/
 cp -a nv-fabricmanager %{buildroot}%{_bindir}/
 cp -a nvswitch-audit %{buildroot}%{_bindir}/
@@ -105,6 +104,8 @@ cp nv_fm_types.h %{buildroot}%{_includedir}/
 mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
+
+%undefine _missing_build_ids_terminate_build
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
