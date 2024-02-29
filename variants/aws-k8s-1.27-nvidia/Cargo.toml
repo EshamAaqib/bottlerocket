@@ -26,6 +26,7 @@ included-packages = [
     "release",
     "nvidia-container-toolkit-k8s",
     "nvidia-k8s-device-plugin",
+    "nvidia-fabrics-manager",
     "kmod-5.15-nvidia-tesla-535",
 ]
 kernel-parameters = [
