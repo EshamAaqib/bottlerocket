@@ -115,6 +115,7 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
 /usr/share/doc/nvidia-fabricmanager/*
+/usr/share/licenses/nvidia-fabric-manager/*
 
 %files -n nvidia-fabric-manager-devel
 %{_libdir}/*
