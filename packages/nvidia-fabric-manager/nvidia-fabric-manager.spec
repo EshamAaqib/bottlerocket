@@ -120,8 +120,8 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 /x86_64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/nvidia-fabric-manager/attribution.txt
 
 %files -n nvidia-fabric-manager-devel
-%{_libdir}/*
-%{_includedir}/*
+%{_cross_libdir}/*
+%{_cross_includedir}/*
 
 %files -n cuda-drivers-fabricmanager-%{branch}
 
