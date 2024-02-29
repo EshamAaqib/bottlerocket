@@ -102,7 +102,7 @@ ln -s lib/libnvfm.so.1 %{buildroot}%{_libdir}/libnvfm.so
 
 mkdir -p %{buildroot}%{_includedir}/
 cp include/nv_fm_agent.h %{buildroot}%{_includedir}/
-cp incude/nv_fm_types.h %{buildroot}%{_includedir}/
+cp include/nv_fm_types.h %{buildroot}%{_includedir}/
 
 mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
