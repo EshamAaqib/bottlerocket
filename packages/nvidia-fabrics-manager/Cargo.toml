@@ -13,7 +13,7 @@ releases-url = "https://developer.download.nvidia.com/compute/cuda/redist/fabric
 
 [[package.metadata.build-package.external-files]]
 url = "https://developer.download.nvidia.com/compute/nvidia-driver/redist/fabricmanager/linux-x86_64/fabricmanager-linux-x86_64-550.54.14-archive.tar.xz"
-sha512 = "868b35d567e4c6dccbff0f7e8f74bc55781c8d71db995fd9e471829afec0b44fd430caba964377052678e244d18ea999133487f9a3c50c7289f381480b24c55d"
+sha512 = "24a9fcd1e7aa1fcfb881748b00a33b4efe0d988f7f11de1ec750c15dd067a5da512a70a4dd95b9a921c7b5ab3cd86fbbea415e404e47cbaf023328c4d7335469"
 
 [build-dependencies]
 glibc = { path = "../glibc" }
