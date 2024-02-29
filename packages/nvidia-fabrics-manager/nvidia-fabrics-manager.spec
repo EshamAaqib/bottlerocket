@@ -57,6 +57,8 @@ package is across all driver branches.
 
 %build
 
+%define my_build_id 1234567890abcdef 
+
 %install
 export DONT_STRIP=1
 
