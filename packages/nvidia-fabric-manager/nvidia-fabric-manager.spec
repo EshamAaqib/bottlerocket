@@ -23,7 +23,7 @@ Provides:       nvidia-fabricmanager-%{branch} = %{version}
 Fabric Manager for NVIDIA NVSwitch based systems.
 
 %prep
-%setup -q -n fabricmanager-linux-x86_64-550.54.14-archive
+%setup -q -n fabricmanager-linux-x86_64-535.161.07-archive
 
 %build
 
