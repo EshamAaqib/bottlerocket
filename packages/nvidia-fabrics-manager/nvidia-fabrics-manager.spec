@@ -1,4 +1,4 @@
-%global debug_package %{nil}
+%global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
 %global version 470.57.02
 %global branch 470
@@ -82,6 +82,8 @@ cp nv_fm_types.h %{buildroot}%{_includedir}/
 mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
+
+chrpath --set-build-id %{buildroot}%{_bindir}/nv-fabricmanager
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
