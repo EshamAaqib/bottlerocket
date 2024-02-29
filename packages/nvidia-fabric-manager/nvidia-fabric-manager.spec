@@ -2,8 +2,8 @@
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
-%global version 550.54.14
-%global branch 550
+%global version 535.161.07
+%global branch 535
 %global _missing_build_ids_terminate_build 0
 
 Name: %{_cross_os}nvidia-fabric-manager
