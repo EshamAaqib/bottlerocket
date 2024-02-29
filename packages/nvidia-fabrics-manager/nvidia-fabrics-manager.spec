@@ -4,6 +4,7 @@
 
 %global version 470.57.02
 %global branch 470
+%global build_id 1001
 
 Name:           %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
@@ -59,6 +60,7 @@ package is across all driver branches.
 
 %install
 export DONT_STRIP=1
+export BUILD_ID=%{build_id}
 
 rm -rf %{buildroot}
 
