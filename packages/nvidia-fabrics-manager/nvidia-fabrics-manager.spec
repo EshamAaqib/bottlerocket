@@ -2,6 +2,7 @@
 
 %global version 470.57.02
 %global branch 470
+function gobuild { go build -a -ldflags "-B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \n')" -v -x "$@"; }
 
 Name:           %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
