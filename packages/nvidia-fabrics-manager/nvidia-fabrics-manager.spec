@@ -4,19 +4,14 @@
 %global branch 470
 
 # Define the compiler macros
-%{!?compiler:%global compiler gcc}
-%{!?cxx_compiler:%global cxx_compiler g++}
+%{!?compiler:%global compiler "gcc"}
 
-# Use the defined compiler macros
+# Use the defined compiler macro
 %global _gcc_bin %{compiler}
-%global _gxx_bin %{cxx_compiler}
 
-# Set the compiler environment variables
-%if %{compiler}
+# Set the compiler environment variable
+%if "%{compiler}"
 %global _cc %{compiler}
-%endif
-%if %{cxx_compiler}
-%global _cxx %{cxx_compiler}
 %endif
 
 Name:           %{_cross_os}nvidia-fabric-manager
