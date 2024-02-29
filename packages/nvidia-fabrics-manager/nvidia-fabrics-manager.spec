@@ -106,6 +106,9 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
+objcopy --add-gnu-debuglink=%{buildroot}%{_bindir}/nv-fabricmanager
+objcopy --add-gnu-debuglink=%{buildroot}%{_bindir}/nvswitch-audit
+
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
