@@ -106,12 +106,12 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
 
 %files
-%{buildroot}/usr/share/doc/nvidia-fabricmanager/third-party-notices.txt
-%{buildroot}/usr/share/doc/nvidia-fabricmanager/LICENSE
-%{buildroot}%{_includedir}/nv_fm_agent.h
-%{buildroot}%{_includedir}/nv_fm_types.h
-%{buildroot}%{_libdir}/libnvfm.so
-%{buildroot}/usr/share/nvidia/nvswitch/*
-%{buildroot}/usr/lib/systemd/system/nvidia-fabricmanager.service
-%{buildroot}%{_bindir}/nv-fabricmanager
-%{buildroot}%{_bindir}/nvswitch-audit
+/usr/share/doc/nvidia-fabricmanager/third-party-notices.txt
+/usr/share/doc/nvidia-fabricmanager/LICENSE
+/%{_includedir}/nv_fm_agent.h
+/%{_includedir}/nv_fm_types.h
+/%{_libdir}/libnvfm.so
+/usr/share/nvidia/nvswitch/*
+/usr/lib/systemd/system/nvidia-fabricmanager.service
+/%{_bindir}/nv-fabricmanager
+/%{_bindir}/nvswitch-audit
