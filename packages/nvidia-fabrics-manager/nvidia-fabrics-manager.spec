@@ -106,11 +106,8 @@ cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
 
-%post -n nvidia-fabric-manager-devel
-
-%postun -n nvidia-fabric-manager-devel
-
-%files%{_bindir}/*
+%files
+{_bindir}/*
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
 %config(noreplace) /usr/share/nvidia/nvswitch/fabricmanager.cfg
