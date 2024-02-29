@@ -77,9 +77,7 @@ package is across all driver branches.
 %setup -q -n fabricmanager
 
 %build
-
-gcc -o nv-fabricmanager nv-fabricmanager.c -Wl,--build-id
-gcc -o nvswitch-audit nvswitch-audit.c -Wl,--build-id
+%{__make} %{?_smp_mflags} CFLAGS="%{optflags} -Wl,--build-id"
 
 %install
 export DONT_STRIP=1
