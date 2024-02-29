@@ -50,28 +50,6 @@ Provides:       nvidia-fabricmanager-devel-%{branch} = %{version}
 %description -n nvidia-fabric-manager-devel
 Fabric Manager API headers and associated library
 
-%package -n cuda-drivers-fabricmanager-%{branch}
-Summary:        Meta-package for FM and Driver
-Requires:       nvidia-fabric-manager = %{version}
-Requires:       cuda-drivers-%{branch} = %{version}
-
-Conflicts:      cuda-drivers-fabricmanager-%{branch} < %{version}
-Conflicts:      cuda-drivers-fabricmanager-branch
-
-%description -n cuda-drivers-fabricmanager-%{branch}
-Convience meta-package for installing fabricmanager and the cuda-drivers
-meta-package simultaneously while keeping version equivalence. This meta-
-package is branch-specific.
-
-%package -n cuda-drivers-fabricmanager
-Summary:        Meta-package for FM and Driver
-Requires:       cuda-drivers-fabricmanager-%{branch} = %{version}
-
-%description -n cuda-drivers-fabricmanager
-Convience meta-package for installing fabricmanager and the cuda-drivers
-meta-package simultaneously while keeping version equivalence. This meta-
-package is across all driver branches.
-
 %prep
 %setup -q -n fabricmanager
 
@@ -120,9 +98,3 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %files -n nvidia-fabric-manager-devel
 %{_libdir}/*
 %{_includedir}/*
-
-%files -n cuda-drivers-fabricmanager-%{branch}
-
-%files -n cuda-drivers-fabricmanager
-
-
