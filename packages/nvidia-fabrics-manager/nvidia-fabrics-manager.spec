@@ -25,7 +25,6 @@
 
 %global version 470.57.02
 %global branch 470
-%undefine _missing_build_ids_terminate_build
 %global _missing_build_ids_terminate_build 0
 
 Name:           nvidia-fabric-manager
@@ -76,9 +75,11 @@ meta-package simultaneously while keeping version equivalence. This meta-
 package is across all driver branches.
 
 %prep
+%undefine _missing_build_ids_terminate_build
 %setup -q -n fabricmanager
 
 %build
+%undefine _missing_build_ids_terminate_build
 
 %install
 export DONT_STRIP=1
@@ -109,6 +110,7 @@ cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+%undefine _missing_build_ids_terminate_build
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
