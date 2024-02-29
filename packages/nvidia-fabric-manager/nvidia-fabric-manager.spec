@@ -83,9 +83,6 @@ package is across all driver branches.
 export DONT_STRIP=1
 %define _build_id_links none
 
-rm -rf %{buildroot}
-
-mkdir -p %{buildroot}%{_cross_bindir}/
 cp -a bin/nv-fabricmanager %{buildroot}%{_cross_bindir}/
 cp -a bin/nvswitch-audit %{buildroot}%{_cross_bindir}/
 
