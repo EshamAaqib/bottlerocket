@@ -1,4 +1,4 @@
-%global __os_install_post /usr/lib/rpm/brp-compress %{nil}
+%global debug_package %{nil}
 
 %global version 470.57.02
 %global branch 470
