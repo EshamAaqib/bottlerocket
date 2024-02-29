@@ -86,6 +86,8 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 chrpath --set-build-id %{buildroot}%{_bindir}/nv-fabricmanager
+chrpath --set-build-id %{buildroot}%{_bindir}/nvswitch-audit
+chrpath --set-build-id %{buildroot}/usr/lib64/libnvfm.so.1
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
