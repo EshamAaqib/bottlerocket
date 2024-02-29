@@ -78,6 +78,7 @@ package is across all driver branches.
 %build
 
 %install
+%define _build_id_links none
 export DONT_STRIP=1
 
 rm -rf %{buildroot}
