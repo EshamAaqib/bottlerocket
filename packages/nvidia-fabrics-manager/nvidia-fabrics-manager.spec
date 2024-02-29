@@ -2,7 +2,22 @@
 
 %global version 470.57.02
 %global branch 470
-function gobuild { go build -a -ldflags "-B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \n')" -v -x "$@"; }
+
+# Define the compiler macros
+%{!?compiler:%global compiler gcc}
+%{!?cxx_compiler:%global cxx_compiler g++}
+
+# Use the defined compiler macros
+%global _gcc_bin %{compiler}
+%global _gxx_bin %{cxx_compiler}
+
+# Set the compiler environment variables
+%if %{compiler}
+%global _cc %{compiler}
+%endif
+%if %{cxx_compiler}
+%global _cxx %{cxx_compiler}
+%endif
 
 Name:           %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
