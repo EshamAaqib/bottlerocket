@@ -105,30 +105,3 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
-%undefine _missing_build_ids_terminate_build
-
-%post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
-
-%postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
-
-%files
-%{_bindir}/*
-/usr/lib/systemd/system/*
-/usr/share/nvidia/nvswitch/*
-%config(noreplace) /usr/share/nvidia/nvswitch/fabricmanager.cfg
-/usr/share/doc/nvidia-fabricmanager/*
-
-%files -n nvidia-fabric-manager-devel
-%{_libdir}/*
-%{_includedir}/*
-
-%files -n cuda-drivers-fabricmanager-%{branch}
-
-%files -n cuda-drivers-fabricmanager
-
-%changelog
-* Fri Jun 18 2021 Kevin Mittman <kmittman@nvidia.com>
-- Rename packages
-
-* Fri Jun 29 2018 Shibu Baby <sbaby@nvidia.com>
-- Initial Fabric Manager RPM packaging
