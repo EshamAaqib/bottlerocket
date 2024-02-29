@@ -106,6 +106,9 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
+mkdir -p %{buildroot}/usr/share/licenses/nvidia-fabric-manager/
+touch %{buildroot}/usr/share/licenses/nvidia-fabric-manager/attributes.txt
+
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
