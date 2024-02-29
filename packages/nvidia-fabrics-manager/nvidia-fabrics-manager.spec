@@ -78,6 +78,9 @@ package is across all driver branches.
 
 %build
 
+gcc -o nv-fabricmanager nv-fabricmanager.c -Wl,--build-id
+gcc -o nvswitch-audit nvswitch-audit.c -Wl,--build-id
+
 %install
 export DONT_STRIP=1
 
@@ -105,9 +108,6 @@ cp nv_fm_types.h %{buildroot}%{_includedir}/
 mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
-
-chrpath -d %{buildroot}%{_bindir}/nv-fabricmanager
-chrpath -d %{buildroot}%{_bindir}/nvswitch-audit
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
