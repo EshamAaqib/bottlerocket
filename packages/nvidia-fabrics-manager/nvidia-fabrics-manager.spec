@@ -20,7 +20,6 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 %global debug_package %{nil}
-%global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
 %global version 470.57.02
 %global branch 470
@@ -104,3 +103,10 @@ cp nv_fm_types.h %{buildroot}%{_includedir}/
 mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
+
+
+%files
+/usr/lib/systemd/system/*
+/usr/share/nvidia/nvswitch/*
+/usr/share/doc/nvidia-fabricmanager/*
+
