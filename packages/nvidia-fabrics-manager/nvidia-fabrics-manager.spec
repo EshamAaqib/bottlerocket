@@ -75,7 +75,7 @@ meta-package simultaneously while keeping version equivalence. This meta-
 package is across all driver branches.
 
 %prep
-%setup -q -n fabricmanager-linux-x86_64-545.23.08-archive
+%setup -q -n fabricmanager-linux-x86_64-550.54.14-archive
 
 %build
 
