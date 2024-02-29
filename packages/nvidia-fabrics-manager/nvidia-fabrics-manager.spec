@@ -83,9 +83,9 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
-chrpath --set-build-id %{buildroot}%{_bindir}/nv-fabricmanager
-
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+
+chrpath --set-build-id %{buildroot}%{_bindir}/nv-fabricmanager
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
