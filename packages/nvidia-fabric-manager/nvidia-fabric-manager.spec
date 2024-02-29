@@ -83,6 +83,9 @@ package is across all driver branches.
 export DONT_STRIP=1
 %define _build_id_links none
 
+rm -rf %{buildroot}
+
+mkdir -p %{buildroot}%{_cross_bindir}/
 cp -a bin/nv-fabricmanager %{buildroot}%{_cross_bindir}/
 cp -a bin/nvswitch-audit %{buildroot}%{_cross_bindir}/
 
@@ -100,10 +103,6 @@ ln -s lib/libnvfm.so.1 %{buildroot}%{_cross_libdir}/libnvfm.so
 mkdir -p %{buildroot}%{_cross_includedir}/
 cp include/nv_fm_agent.h %{buildroot}%{_cross_includedir}/
 cp include/nv_fm_types.h %{buildroot}%{_cross_includedir}/
-
-mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
-cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
-cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
