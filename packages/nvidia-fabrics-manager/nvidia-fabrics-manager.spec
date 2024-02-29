@@ -12,7 +12,7 @@ Summary:        Fabric Manager for NVSwitch based systems
 
 License:        NVIDIA Proprietary
 URL:            http://www.nvidia.com
-Source0:        fabricmanager-linux-x86_64-470.57.02.tar.gz
+Source0:        https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager/linux-x86_64/fabricmanager-linux-x86_64-470.57.02.tar.gz
 
 Provides:       nvidia-fabricmanager = %{version}
 Provides:       nvidia-fabricmanager-%{branch} = %{version}
