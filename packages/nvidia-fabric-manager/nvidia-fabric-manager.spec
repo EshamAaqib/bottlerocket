@@ -113,7 +113,7 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 %files
-%{_bindir}/*
+%{_cross_bindir}/*
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
 /usr/share/doc/nvidia-fabricmanager/*
