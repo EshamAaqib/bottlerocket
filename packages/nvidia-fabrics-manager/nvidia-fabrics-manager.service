@@ -1,17 +1,18 @@
 [Unit]
-Description=Start NVIDIA fabrics manager
+Description=NVIDIA fabric manager service
 RefuseManualStart=true
 RefuseManualStop=true
 After=kubelet.service
 Wants=kubelet.service
 
 [Service]
-ExecStart=/usr/bin/nvidia-fabric-manager-devel -p /sbin/ldconfig
+ExecStart=/usr/bin/nv-fabricmanager -c /usr/share/nvidia/nvswitch/fabricmanager.cfg
 Type=simple
 TimeoutSec=0
 RestartSec=2
 Restart=always
 StandardError=journal+console
+LimitCORE=infinity
 
 [Install]
 WantedBy=multi-user.target
