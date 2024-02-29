@@ -81,5 +81,6 @@ cp include/nv_fm_types.h %{buildroot}%{_cross_includedir}/
 /usr/share/nvidia/nvswitch/*_topology
 %{_cross_attribution_file}
 %{_cross_libdir}/libnvfm.so.1
+%{_cross_libdir}/libnvfm.so
 %{_cross_includedir}/nv_fm_agent.h
 %{_cross_includedir}/nv_fm_types.h
