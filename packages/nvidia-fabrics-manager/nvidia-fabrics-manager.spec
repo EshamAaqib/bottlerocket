@@ -21,8 +21,8 @@
 
 %global debug_package %{nil}
 
-%global version 545.23.08
-%global branch 545
+%global version 470.57.02
+%global branch 470
 %global _missing_build_ids_terminate_build 0
 
 Name:           nvidia-fabric-manager
@@ -78,8 +78,9 @@ package is across all driver branches.
 %build
 
 %install
-%define _build_id_links none
 export DONT_STRIP=1
+%define _build_id_links none
+
 
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_bindir}/
