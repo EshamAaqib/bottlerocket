@@ -4,7 +4,7 @@
 
 %global version 470.57.02
 %global branch 470
-%global build_id 1
+%global build_id 0xFFFFFFFF
 
 Name:           %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
