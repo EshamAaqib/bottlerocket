@@ -77,7 +77,6 @@ package is across all driver branches.
 %setup -q -n fabricmanager
 
 %build
-%{__make} %{?_smp_mflags} CFLAGS="%{optflags} -Wl,--build-id"
 
 %install
 export DONT_STRIP=1
