@@ -60,7 +60,7 @@ package is across all driver branches.
 
 %install
 export DONT_STRIP=1
-export BUILD_ID=%{build_id}
+export build-id=%{build_id}
 
 rm -rf %{buildroot}
 
