@@ -23,8 +23,8 @@
 %global debug_package %{nil}
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
-%global version 470.57.02
-%global branch 470
+%global version 550.54.14
+%global branch 550
 %global _missing_build_ids_terminate_build 0
 
 Name:           nvidia-fabric-manager
@@ -111,6 +111,7 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 %files
+%{_bindir}/*
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
 /usr/share/doc/nvidia-fabricmanager/*
