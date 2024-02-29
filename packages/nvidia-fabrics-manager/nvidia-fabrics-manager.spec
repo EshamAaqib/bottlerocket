@@ -86,23 +86,23 @@ export DONT_STRIP=1
 rm -rf %{buildroot}
 
 mkdir -p %{buildroot}%{_bindir}/
-cp -a bin/nv-fabricmanager %{buildroot}%{_bindir}/
-cp -a bin/nvswitch-audit %{buildroot}%{_bindir}/
+cp -a /bin/nv-fabricmanager %{buildroot}%{_bindir}/
+cp -a /bin/nvswitch-audit %{buildroot}%{_bindir}/
 
 mkdir -p %{buildroot}/usr/lib/systemd/system
-cp -a systemd/nvidia-fabricmanager.service  %{buildroot}/usr/lib/systemd/system
+cp -a /systemd/nvidia-fabricmanager.service  %{buildroot}/usr/lib/systemd/system
 
 mkdir -p %{buildroot}/usr/share/nvidia/nvswitch
-cp -a share/nvidia/nwsitch/*_topology %{buildroot}/usr/share/nvidia/nvswitch
-cp -a etc/fabricmanager.cfg %{buildroot}/usr/share/nvidia/nvswitch
+cp -a /share/nvidia/nwsitch/*_topology %{buildroot}/usr/share/nvidia/nvswitch
+cp -a /etc/fabricmanager.cfg %{buildroot}/usr/share/nvidia/nvswitch
 
 mkdir -p %{buildroot}%{_libdir}/
-cp lib/libnvfm.so.1 %{buildroot}%{_libdir}/
-ln -s lib/libnvfm.so.1 %{buildroot}%{_libdir}/libnvfm.so
+cp /lib/libnvfm.so.1 %{buildroot}%{_libdir}/
+ln -s /lib/libnvfm.so.1 %{buildroot}%{_libdir}/libnvfm.so
 
 mkdir -p %{buildroot}%{_includedir}/
-cp include/nv_fm_agent.h %{buildroot}%{_includedir}/
-cp incude/nv_fm_types.h %{buildroot}%{_includedir}/
+cp /include/nv_fm_agent.h %{buildroot}%{_includedir}/
+cp /incude/nv_fm_types.h %{buildroot}%{_includedir}/
 
 mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
