@@ -81,8 +81,8 @@ package is across all driver branches.
 export DONT_STRIP=1
 %define _build_id_links none
 
-
 rm -rf %{buildroot}
+
 mkdir -p %{buildroot}%{_bindir}/
 cp -a nv-fabricmanager %{buildroot}%{_bindir}/
 cp -a nvswitch-audit %{buildroot}%{_bindir}/
@@ -111,14 +111,18 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 %files
-/usr/share/doc/nvidia-fabricmanager/third-party-notices.txt
-/usr/share/doc/nvidia-fabricmanager/LICENSE
-/%{_includedir}/nv_fm_agent.h
-/%{_includedir}/nv_fm_types.h
-/%{_libdir}/libnvfm.so
+%{_bindir}/*
+/usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
-/usr/lib/systemd/system/nvidia-fabricmanager.service
-/%{_bindir}/nv-fabricmanager
-/%{_bindir}/nvswitch-audit
+%config(noreplace) /usr/share/nvidia/nvswitch/fabricmanager.cfg
+/usr/share/doc/nvidia-fabricmanager/*
+
+%files -n nvidia-fabric-manager-devel
+%{_libdir}/*
+%{_includedir}/*
+
+%files -n cuda-drivers-fabricmanager-%{branch}
+
+%files -n cuda-drivers-fabricmanager
 
 
