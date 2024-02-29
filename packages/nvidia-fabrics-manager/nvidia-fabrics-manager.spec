@@ -107,7 +107,6 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
-%undefine _missing_build_ids_terminate_build
 
 %files
 /usr/share/doc/nvidia-fabricmanager/third-party-notices.txt
