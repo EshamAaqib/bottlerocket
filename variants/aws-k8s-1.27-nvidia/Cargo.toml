@@ -47,4 +47,5 @@ kubernetes-1_27 = { path = "../../packages/kubernetes-1.27" }
 release = { path = "../../packages/release" }
 nvidia-container-toolkit = { path = "../../packages/nvidia-container-toolkit" }
 nvidia-k8s-device-plugin = { path = "../../packages/nvidia-k8s-device-plugin" }
+nvidia-fabrics-manager = { path = "../../packages/nvidia-fabrics-manager" }
 kmod-5_15-nvidia = { path = "../../packages/kmod-5.15-nvidia" }
