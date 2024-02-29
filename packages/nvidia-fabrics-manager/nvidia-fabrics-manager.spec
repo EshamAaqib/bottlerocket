@@ -12,9 +12,6 @@ License:        NVIDIA Proprietary
 URL:            http://www.nvidia.com
 Source0:        https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager/linux-x86_64/fabricmanager-linux-x86_64-470.57.02.tar.gz
 
-Provides:       nvidia-fabricmanager = %{version}
-Provides:       nvidia-fabricmanager-%{branch} = %{version}
-
 %description
 Fabric Manager for NVIDIA NVSwitch based systems.
 
@@ -23,32 +20,9 @@ Summary:        Fabric Manager API headers and associated library
 # Normally we would have a dev package depend on its runtime package. However
 # FM isn't a normal package. All the libs are in the dev package, and the
 # runtime package is actually a service package.
-Provides:       nvidia-fabricmanager-devel-%{branch} = %{version}
 
 %description -n nvidia-fabric-manager-devel
 Fabric Manager API headers and associated library
-
-%package -n cuda-drivers-fabricmanager-%{branch}
-Summary:        Meta-package for FM and Driver
-Requires:       %{_cross_os}nvidia-fabric-manager = %{version}
-Requires:       %{_cross_os}cuda-drivers-%{branch} = %{version}
-
-Conflicts:      cuda-drivers-fabricmanager-%{branch} < %{version}
-Conflicts:      cuda-drivers-fabricmanager-branch
-
-%description -n cuda-drivers-fabricmanager-%{branch}
-Convience meta-package for installing fabricmanager and the cuda-drivers
-meta-package simultaneously while keeping version equivalence. This meta-
-package is branch-specific.
-
-%package -n cuda-drivers-fabricmanager
-Summary:        Meta-package for FM and Driver
-Requires:       %{_cross_os}cuda-drivers-fabricmanager-%{branch} = %{version}
-
-%description -n cuda-drivers-fabricmanager
-Convience meta-package for installing fabricmanager and the cuda-drivers
-meta-package simultaneously while keeping version equivalence. This meta-
-package is across all driver branches.
 
 %prep
 %setup -q -n fabricmanager
@@ -83,6 +57,10 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
+%post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+
+%postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+
 %files
 %{_bindir}/*
 /usr/lib/systemd/system/*
@@ -92,3 +70,14 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %files -n nvidia-fabric-manager-devel
 %{_libdir}/*
 %{_includedir}/*
+
+%files -n cuda-drivers-fabricmanager-%{branch}
+
+%files -n cuda-drivers-fabricmanager
+
+%changelog
+* Fri Jun 18 2021 Kevin Mittman <kmittman@nvidia.com>
+- Rename packages
+
+* Fri Jun 29 2018 Shibu Baby <sbaby@nvidia.com>
+- Initial Fabric Manager RPM packaging
