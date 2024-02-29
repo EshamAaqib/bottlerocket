@@ -74,17 +74,15 @@ meta-package simultaneously while keeping version equivalence. This meta-
 package is across all driver branches.
 
 %prep
-%undefine _missing_build_ids_terminate_build
 %setup -q -n fabricmanager
 
 %build
-%undefine _missing_build_ids_terminate_build
 
 %install
 export DONT_STRIP=1
 
 rm -rf %{buildroot}
-
+%undefine _missing_build_ids_terminate_build
 mkdir -p %{buildroot}%{_bindir}/
 cp -a nv-fabricmanager %{buildroot}%{_bindir}/
 cp -a nvswitch-audit %{buildroot}%{_bindir}/
@@ -109,7 +107,6 @@ cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
-%undefine _missing_build_ids_terminate_build
 
 %postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
