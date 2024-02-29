@@ -94,6 +94,7 @@ cp -a fabricmanager.cfg %{buildroot}/usr/share/nvidia/nvswitch
 
 mkdir -p %{buildroot}%{_libdir}/
 cp libnvfm.so.1 %{buildroot}%{_libdir}/
+ln -s libnvfm.so.1 %{buildroot}%{_libdir}/libnvfm.so
 
 mkdir -p %{buildroot}%{_includedir}/
 cp nv_fm_agent.h %{buildroot}%{_includedir}/
@@ -103,15 +104,20 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
+%post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+
+%postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+%undefine _missing_build_ids_terminate_build
 
 %files
 /usr/share/doc/nvidia-fabricmanager/third-party-notices.txt
 /usr/share/doc/nvidia-fabricmanager/LICENSE
 /%{_includedir}/nv_fm_agent.h
 /%{_includedir}/nv_fm_types.h
+/%{_libdir}/libnvfm.so
 /usr/share/nvidia/nvswitch/*
 /usr/lib/systemd/system/nvidia-fabricmanager.service
 /%{_bindir}/nv-fabricmanager
 /%{_bindir}/nvswitch-audit
 
-%undefine _missing_build_ids_terminate_build
+
