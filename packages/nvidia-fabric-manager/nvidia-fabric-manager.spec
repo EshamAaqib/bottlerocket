@@ -43,38 +43,6 @@ Provides:       nvidia-fabricmanager-%{branch} = %{version}
 %description
 Fabric Manager for NVIDIA NVSwitch based systems.
 
-%package -n nvidia-fabric-manager-devel
-Summary:        Fabric Manager API headers and associated library
-# Normally we would have a dev package depend on its runtime package. However
-# FM isn't a normal package. All the libs are in the dev package, and the
-# runtime package is actually a service package.
-Provides:       nvidia-fabricmanager-devel-%{branch} = %{version}
-
-%description -n nvidia-fabric-manager-devel
-Fabric Manager API headers and associated library
-
-%package -n cuda-drivers-fabricmanager-%{branch}
-Summary:        Meta-package for FM and Driver
-Requires:       nvidia-fabric-manager = %{version}
-Requires:       cuda-drivers-%{branch} = %{version}
-
-Conflicts:      cuda-drivers-fabricmanager-%{branch} < %{version}
-Conflicts:      cuda-drivers-fabricmanager-branch
-
-%description -n cuda-drivers-fabricmanager-%{branch}
-Convience meta-package for installing fabricmanager and the cuda-drivers
-meta-package simultaneously while keeping version equivalence. This meta-
-package is branch-specific.
-
-%package -n cuda-drivers-fabricmanager
-Summary:        Meta-package for FM and Driver
-Requires:       cuda-drivers-fabricmanager-%{branch} = %{version}
-
-%description -n cuda-drivers-fabricmanager
-Convience meta-package for installing fabricmanager and the cuda-drivers
-meta-package simultaneously while keeping version equivalence. This meta-
-package is across all driver branches.
-
 %prep
 %setup -q -n fabricmanager-linux-x86_64-550.54.14-archive
 
@@ -105,27 +73,10 @@ mkdir -p %{buildroot}%{_cross_includedir}/
 cp include/nv_fm_agent.h %{buildroot}%{_cross_includedir}/
 cp include/nv_fm_types.h %{buildroot}%{_cross_includedir}/
 
-%post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
-
-%postun -n nvidia-fabric-manager-devel -p /sbin/ldconfig
-
 %files
 %{_cross_bindir}/*
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
-/x86_64-bottlerocket-linux-gnu/sys-root/usr/share/licenses/nvidia-fabric-manager/attribution.txt
-
-%files -n nvidia-fabric-manager-devel
+%{_cross_attribution_file}
 %{_cross_libdir}/*
 %{_cross_includedir}/*
-
-%files -n cuda-drivers-fabricmanager-%{branch}
-
-%files -n cuda-drivers-fabricmanager
-
-%changelog
-* Fri Jun 18 2021 Kevin Mittman <kmittman@nvidia.com>
-- Rename packages
-
-* Fri Jun 29 2018 Shibu Baby <sbaby@nvidia.com>
-- Initial Fabric Manager RPM packaging
