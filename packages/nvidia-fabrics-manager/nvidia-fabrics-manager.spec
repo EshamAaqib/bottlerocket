@@ -26,6 +26,7 @@
 %global version 470.57.02
 %global branch 470
 %undefine _missing_build_ids_terminate_build
+%global _missing_build_ids_terminate_build 0
 
 Name:           nvidia-fabric-manager
 Version:        %{?version}
