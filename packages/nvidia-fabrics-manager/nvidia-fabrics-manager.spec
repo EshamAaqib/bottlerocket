@@ -3,6 +3,7 @@
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
 %global version 470.57.02
+%global build-id 470.57.02
 %global branch 470
 
 Name:           %{_cross_os}nvidia-fabric-manager
@@ -56,8 +57,6 @@ package is across all driver branches.
 %setup -q -n fabricmanager
 
 %build
-
-%define build-id 1234567890abcdef 
 
 %install
 export DONT_STRIP=1
