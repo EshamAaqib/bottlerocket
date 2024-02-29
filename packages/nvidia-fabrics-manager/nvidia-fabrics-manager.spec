@@ -105,6 +105,8 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
+%post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
+
 %files%{_bindir}/*
 /usr/lib/systemd/system/*
 /usr/share/nvidia/nvswitch/*
