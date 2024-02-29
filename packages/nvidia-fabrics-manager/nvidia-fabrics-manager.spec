@@ -77,6 +77,7 @@ package is across all driver branches.
 %setup -q -n fabricmanager
 
 %build
+export CFLAGS="%{optflags} -g"
 
 %install
 export DONT_STRIP=1
