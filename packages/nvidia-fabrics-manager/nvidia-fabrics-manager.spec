@@ -4,7 +4,7 @@
 
 %global version 470.57.02
 %global branch 470
-%global build_id 0xFFFFFFFF
+%global build_id 100
 
 Name:           %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
@@ -86,9 +86,9 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
-eu-strip --build-id=%{build_id} %{buildroot}/usr/bin/nv-fabricmanager
-eu-strip --build-id=%{build_id} %{buildroot}/usr/bin/nvswitch-audit
-eu-strip --build-id=%{build_id} %{buildroot}/usr/lib64/libnvfm.so.1
+strip --build-id=%{build_id} %{buildroot}/usr/bin/nv-fabricmanager
+strip --build-id=%{build_id} %{buildroot}/usr/bin/nvswitch-audit
+strip --build-id=%{build_id} %{buildroot}/usr/lib64/libnvfm.so.1
 
 %post -n nvidia-fabric-manager-devel -p /sbin/ldconfig
 
