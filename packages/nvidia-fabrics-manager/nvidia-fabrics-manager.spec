@@ -105,3 +105,16 @@ mkdir -p %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a LICENSE %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 
+%files%{_bindir}/*
+/usr/lib/systemd/system/*
+/usr/share/nvidia/nvswitch/*
+%config(noreplace) /usr/share/nvidia/nvswitch/fabricmanager.cfg
+/usr/share/doc/nvidia-fabricmanager/*
+
+%files -n nvidia-fabric-manager-devel
+%{_libdir}/*
+%{_includedir}/*
+
+%files -n cuda-drivers-fabricmanager-%{branch}
+
+%files -n cuda-drivers-fabricmanager
