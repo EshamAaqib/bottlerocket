@@ -6,7 +6,7 @@
 %global branch 470
 
 Name:           %{_cross_os}nvidia-fabric-manager
-Version:        470.57.02
+Version:        %{?version}
 Release:        1
 Summary:        Fabric Manager for NVSwitch based systems
 
@@ -16,8 +16,6 @@ Source0:        https://developer.download.nvidia.com/compute/cuda/redist/fabric
 
 Provides:       nvidia-fabricmanager = %{version}
 Provides:       nvidia-fabricmanager-%{branch} = %{version}
-Obsoletes:      nvidia-fabricmanager-branch < %{version}
-Obsoletes:      nvidia-fabricmanager
 
 %description
 Fabric Manager for NVIDIA NVSwitch based systems.
@@ -28,8 +26,6 @@ Summary:        Fabric Manager API headers and associated library
 # FM isn't a normal package. All the libs are in the dev package, and the
 # runtime package is actually a service package.
 Provides:       nvidia-fabricmanager-devel-%{branch} = %{version}
-Obsoletes:      nvidia-fabricmanager-devel-branch < %{version}
-Obsoletes:      nvidia-fabricmanager-devel
 
 %description -n nvidia-fabric-manager-devel
 Fabric Manager API headers and associated library
@@ -39,7 +35,6 @@ Summary:        Meta-package for FM and Driver
 Requires:       %{_cross_os}nvidia-fabric-manager = %{version}
 Requires:       %{_cross_os}cuda-drivers-%{branch} = %{version}
 
-Obsoletes:      cuda-drivers-fabricmanager-branch < %{version}
 Conflicts:      cuda-drivers-fabricmanager-%{branch} < %{version}
 Conflicts:      cuda-drivers-fabricmanager-branch
 
