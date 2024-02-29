@@ -1,15 +1,13 @@
 [Unit]
 Description=NVIDIA fabric manager service
-RefuseManualStart=true
-RefuseManualStop=true
-After=kubelet.service
-Wants=kubelet.service
+After=network-online.target
+Requires=network-online.target
 
 [Service]
 User=root
 PrivateTmp=false
 Type=forking
-TimeoutStartSec=240
+TimeoutStartSec=120
 
 ExecStart=/usr/bin/nv-fabricmanager -c /usr/share/nvidia/nvswitch/fabricmanager.cfg
 
