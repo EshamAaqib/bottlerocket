@@ -25,6 +25,7 @@
 
 %global version 470.57.02
 %global branch 470
+%undefine _missing_build_ids_terminate_build
 
 Name:           nvidia-fabric-manager
 Version:        %{?version}
@@ -77,7 +78,6 @@ package is across all driver branches.
 %setup -q -n fabricmanager
 
 %build
-export CFLAGS="%{optflags} -g"
 
 %install
 export DONT_STRIP=1
