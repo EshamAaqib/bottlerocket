@@ -116,7 +116,3 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %files -n nvidia-fabric-manager-devel
 %{_libdir}/*
 %{_includedir}/*
-
-%files -n cuda-drivers-fabricmanager-%{branch}
-
-%files -n cuda-drivers-fabricmanager
