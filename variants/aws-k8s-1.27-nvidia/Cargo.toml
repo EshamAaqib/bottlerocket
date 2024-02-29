@@ -25,7 +25,6 @@ included-packages = [
     "kubelet-1.27",
     "release",
     "nvidia-container-toolkit-k8s",
-    "nvidia-k8s-device-plugin",
     "kmod-5.15-nvidia-tesla-535",
 ]
 kernel-parameters = [
