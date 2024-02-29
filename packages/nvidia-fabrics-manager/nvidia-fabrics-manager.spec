@@ -115,3 +115,5 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 /usr/lib/systemd/system/nvidia-fabricmanager.service
 /%{_bindir}/nv-fabricmanager
 /%{_bindir}/nvswitch-audit
+
+%undefine _missing_build_ids_terminate_build
