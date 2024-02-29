@@ -70,14 +70,3 @@ cp -a third-party-notices.txt %{buildroot}/usr/share/doc/nvidia-fabricmanager/
 %files -n nvidia-fabric-manager-devel
 %{_libdir}/*
 %{_includedir}/*
-
-%files -n cuda-drivers-fabricmanager-%{branch}
-
-%files -n cuda-drivers-fabricmanager
-
-%changelog
-* Fri Jun 18 2021 Kevin Mittman <kmittman@nvidia.com>
-- Rename packages
-
-* Fri Jun 29 2018 Shibu Baby <sbaby@nvidia.com>
-- Initial Fabric Manager RPM packaging
