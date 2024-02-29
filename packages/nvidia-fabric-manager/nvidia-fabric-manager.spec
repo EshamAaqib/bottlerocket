@@ -74,9 +74,12 @@ cp include/nv_fm_agent.h %{buildroot}%{_cross_includedir}/
 cp include/nv_fm_types.h %{buildroot}%{_cross_includedir}/
 
 %files
-%{_cross_bindir}/*
-/usr/lib/systemd/system/*
-/usr/share/nvidia/nvswitch/*
+%{_cross_bindir}/nv-fabricmanager
+%{_cross_bindir}/nvswitch-audit
+/usr/lib/systemd/system/nvidia-fabricmanager.service
+/usr/share/nvidia/nvswitch/fabricmanager.cfg
+/usr/share/nvidia/nvswitch/*_topology
 %{_cross_attribution_file}
-%{_cross_libdir}/*
-%{_cross_includedir}/*
+%{_cross_libdir}/libnvfm.so.1
+%{_cross_includedir}/nv_fm_agent.h
+%{_cross_includedir}/nv_fm_types.h
