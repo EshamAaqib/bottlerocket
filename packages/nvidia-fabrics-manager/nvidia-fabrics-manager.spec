@@ -6,7 +6,7 @@
 %global branch 470
 
 Name:           %{_cross_os}nvidia-fabric-manager
-Version:        %{version}
+Version:        470.57.02
 Release:        1
 Summary:        Fabric Manager for NVSwitch based systems
 
@@ -14,8 +14,48 @@ License:        NVIDIA Proprietary
 URL:            http://www.nvidia.com
 Source0:        https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager/linux-x86_64/fabricmanager-linux-x86_64-470.57.02.tar.gz
 
+Provides:       nvidia-fabricmanager = %{version}
+Provides:       nvidia-fabricmanager-%{branch} = %{version}
+Obsoletes:      nvidia-fabricmanager-branch < %{version}
+Obsoletes:      nvidia-fabricmanager
+
 %description
 Fabric Manager for NVIDIA NVSwitch based systems.
+
+%package -n nvidia-fabric-manager-devel
+Summary:        Fabric Manager API headers and associated library
+# Normally we would have a dev package depend on its runtime package. However
+# FM isn't a normal package. All the libs are in the dev package, and the
+# runtime package is actually a service package.
+Provides:       nvidia-fabricmanager-devel-%{branch} = %{version}
+Obsoletes:      nvidia-fabricmanager-devel-branch < %{version}
+Obsoletes:      nvidia-fabricmanager-devel
+
+%description -n nvidia-fabric-manager-devel
+Fabric Manager API headers and associated library
+
+%package -n cuda-drivers-fabricmanager-%{branch}
+Summary:        Meta-package for FM and Driver
+Requires:       %{_cross_os}nvidia-fabric-manager = %{version}
+Requires:       %{_cross_os}cuda-drivers-%{branch} = %{version}
+
+Obsoletes:      cuda-drivers-fabricmanager-branch < %{version}
+Conflicts:      cuda-drivers-fabricmanager-%{branch} < %{version}
+Conflicts:      cuda-drivers-fabricmanager-branch
+
+%description -n cuda-drivers-fabricmanager-%{branch}
+Convience meta-package for installing fabricmanager and the cuda-drivers
+meta-package simultaneously while keeping version equivalence. This meta-
+package is branch-specific.
+
+%package -n cuda-drivers-fabricmanager
+Summary:        Meta-package for FM and Driver
+Requires:       %{_cross_os}cuda-drivers-fabricmanager-%{branch} = %{version}
+
+%description -n cuda-drivers-fabricmanager
+Convience meta-package for installing fabricmanager and the cuda-drivers
+meta-package simultaneously while keeping version equivalence. This meta-
+package is across all driver branches.
 
 %prep
 %setup -q -n fabricmanager
