@@ -1,0 +1,19 @@
+[package]
+name = "nvidia-fabric-manager"
+version = "0.1.0"
+edition = "2021"
+publish = false
+build = "../build.rs"
+
+[lib]
+path = "../packages.rs"
+
+[package.metadata.build-package]
+releases-url = "https://developer.download.nvidia.com/compute/cuda/redist/fabricmanager"
+
+[[package.metadata.build-package.external-files]]
+url = "https://developer.download.nvidia.com/compute/nvidia-driver/redist/fabricmanager/linux-x86_64/fabricmanager-linux-x86_64-550.54.14-archive.tar.xz"
+sha512 = "24a9fcd1e7aa1fcfb881748b00a33b4efe0d988f7f11de1ec750c15dd067a5da512a70a4dd95b9a921c7b5ab3cd86fbbea415e404e47cbaf023328c4d7335469"
+
+[build-dependencies]
+glibc = { path = "../glibc" }
