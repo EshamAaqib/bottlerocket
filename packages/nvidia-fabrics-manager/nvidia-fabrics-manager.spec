@@ -94,7 +94,6 @@ cp -a fabricmanager.cfg %{buildroot}/usr/share/nvidia/nvswitch
 
 mkdir -p %{buildroot}%{_libdir}/
 cp libnvfm.so.1 %{buildroot}%{_libdir}/
-ln -s libnvfm.so.1 %{buildroot}%{_libdir}/libnvfm.so
 
 mkdir -p %{buildroot}%{_includedir}/
 cp nv_fm_agent.h %{buildroot}%{_includedir}/
