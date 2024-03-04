@@ -3,27 +3,25 @@
 %global __os_install_post /usr/lib/rpm/brp-compress %{nil}
 
 %global version 535.161.07
-%global branch 535
 %global _missing_build_ids_terminate_build 0
 
-Name: %{_cross_os}nvidia-fabric-manager
+Name:           %{_cross_os}nvidia-fabric-manager
 Version:        %{?version}
-Release:        1
+Release:        1%{?dist}
 Summary:        Fabric Manager for NVSwitch based systems
 
 License: MIT
 URL:            http://www.nvidia.com
 Source0:        https://developer.download.nvidia.com/compute/nvidia-driver/redist/fabricmanager/linux-x86_64/fabricmanager-linux-x86_64-535.161.07-archive.tar.xz
-Source1: nvidia-fabrics-manager.service
+Source1:        nvidia-fabrics-manager.service
 
 Provides:       nvidia-fabricmanager = %{version}
-Provides:       nvidia-fabricmanager-%{branch} = %{version}
 
 %description
 Fabric Manager for NVIDIA NVSwitch based systems.
 
 %prep
-%setup -q -n fabricmanager-linux-x86_64-535.161.07-archive
+%setup -q -n fabricmanager-linux-x86_64-%{version}-archive
 
 %build
 
@@ -55,11 +53,11 @@ cp include/nv_fm_types.h %{buildroot}%{_cross_includedir}/
 %files
 %{_cross_bindir}/nv-fabricmanager
 %{_cross_bindir}/nvswitch-audit
-/usr/lib/systemd/system/nvidia-fabricmanager.service
-/usr/share/nvidia/nvswitch/fabricmanager.cfg
-/usr/share/nvidia/nvswitch/*_topology
-%{_cross_attribution_file}
 %{_cross_libdir}/libnvfm.so.1
 %{_cross_libdir}/libnvfm.so
 %{_cross_includedir}/nv_fm_agent.h
 %{_cross_includedir}/nv_fm_types.h
+%{_cross_attribution_file}
+/usr/lib/systemd/system/nvidia-fabricmanager.service
+/usr/share/nvidia/nvswitch/fabricmanager.cfg
+/usr/share/nvidia/nvswitch/*_topology
